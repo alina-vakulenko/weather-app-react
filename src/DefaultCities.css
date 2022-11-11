@@ -1,0 +1,17 @@
+.DefaultCities ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.DefaultCities li.city {
+  display: inline;
+  padding-right: 25px;
+  color: black;
+  opacity: 0.8;
+  font-size: 12px;
+  transition: all 150ms ease-in-out;
+}
+.DefaultCities .li.city:hover {
+  font-weight: 900;
+  color: var(--text-color-main);
+}

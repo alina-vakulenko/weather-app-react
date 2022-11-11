@@ -1,0 +1,20 @@
+.card-body {
+  font-size: 14px;
+  background: var(--background-color);
+  padding: 10px;
+}
+.top-block {
+  margin: 0;
+  background-color: var(--background-highlight-color);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+}
+.top-block-container {
+  padding: 5px 15px;
+}
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-color: white;
+  border-width: 3px;
+}

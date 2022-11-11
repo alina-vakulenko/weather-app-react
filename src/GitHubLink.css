@@ -1,0 +1,7 @@
+.GitHubLink {
+  text-align: center;
+  margin-top: 5 px;
+  font-family: var(--font-header);
+  font-size: 10px;
+  opacity: 0.8;
+}

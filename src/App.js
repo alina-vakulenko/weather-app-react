@@ -1,12 +1,16 @@
 import "./App.css";
-import Weather from "./Weather";
+import Header from "./Header";
+import Body from "./Body";
+import GitHubLink from "./GitHubLink";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <Weather city="Lviv" />
+      <div className="card">
+        <Header />
+        <Body />
+      </div>
+      <GitHubLink />
     </div>
   );
 }
-
-export default App;

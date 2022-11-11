@@ -1,0 +1,12 @@
+.Header {
+  text-align: center;
+  color: white;
+  padding: 5px;
+  font-size: 22px;
+  font-weight: bold;
+  background: var(--background-highlight-color);
+  font-family: var(--font-header);
+}
+.Header .app-logo {
+  width: 50px;
+}

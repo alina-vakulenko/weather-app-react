@@ -1,38 +1,19 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,400;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap");
+:root {
+  --background-color: #b7dfff;
+  --background-highlight-color: rgba(32, 132, 213, 0.2);
+  --font-main: "Roboto Slab", serif;
+  --font-secondary: "Merriweather", serif;
+  --font-header: "Roboto Mono", monospace;
+  --text-color-main: rgb(15, 15, 139);
+  --box-shadow: 3px 3px 8px rgba(15, 15, 139, 0.4);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card {
+  margin: 0 auto;
+  margin-top: 100px;
+  max-width: 50%;
+  background: var(--background-color);
+  font-family: var(--font-main);
 }
