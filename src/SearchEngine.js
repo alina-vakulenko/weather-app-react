@@ -7,32 +7,33 @@ export default function SearchEngine() {
   const [weather, setWeather] = useState({});
   const [loaded, setLoaded] = useState(false);
   const [currentTime, setCurrentTime] = useState({});
+  const [coords, setCoords] = useState({});
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let iconUrl = `http://openweathermap.org/img/wn/${weather.iconCode}@2x.png`;
 
-  let forecastIconUrl = `http://openweathermap.org/img/wn/${weather.iconCode}@2x.png`;
   function formatDate(timezone) {
-    let days = [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ];
-    let months = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
     let currentTime = new Date();
     let localTime = currentTime.getTime();
     let localOffset = currentTime.getTimezoneOffset() * 60000;
@@ -72,6 +73,7 @@ export default function SearchEngine() {
       dayOfWeek: fullTime.dayOfWeek,
       time: fullTime.time,
     });
+    setCoords({ lon: response.data.coord.lon, lat: response.data.coord.lat });
     setLoaded(true);
   }
 
@@ -88,16 +90,16 @@ export default function SearchEngine() {
     setLoaded(false);
   }
 
-  function searchLocation(position) {
-    let latitude = position.coords.latitude;
-    let longitude = position.coords.longitude;
-    let apiKey = "7d478f69e1b2f5d563653f13f5f91d76";
-    let units = "metric";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`;
-    axios.get(apiUrl).then(handleResponse);
-  }
-  function searchCurrentPosition(event) {
+  function searchCurrentCoords(event) {
     event.preventDefault();
+    function searchLocation(position) {
+      let latitude = position.coords.latitude;
+      let longitude = position.coords.longitude;
+      let apiKey = "7d478f69e1b2f5d563653f13f5f91d76";
+      let units = "metric";
+      let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`;
+      axios.get(apiUrl).then(handleResponse);
+    }
     navigator.geolocation.getCurrentPosition(searchLocation);
   }
   let searchForm = (
@@ -109,10 +111,7 @@ export default function SearchEngine() {
         onChange={changeCity}
       />
       <input type="submit" value="Search" className="search-button" />
-      <button
-        className="current-location-button"
-        onClick={searchCurrentPosition}
-      >
+      <button className="current-location-button" onClick={searchCurrentCoords}>
         Current
       </button>
     </form>
@@ -121,30 +120,27 @@ export default function SearchEngine() {
   let searchResults = (
     <div className="CurrentWeather">
       <div className="row weather-blocks">
-        <div className="col-4">
-          <div className="d-flex flex-column">
-            <div className="current-city">{city}</div>
-            <div className="date">
-              {currentTime.month} {currentTime.dayOfMonth}
+        <div className="col-6">
+          <div className="d-flex justify-content-between">
+            <div className="d-flex flex-column">
+              <div className="current-city">{city}</div>
+              <div className="date">
+                {currentTime.month} {currentTime.dayOfMonth}
+              </div>
+              <div className="day-time">
+                {currentTime.dayOfWeek} {currentTime.time}
+              </div>
             </div>
-            <div className="day-time">
-              {currentTime.dayOfWeek} {currentTime.time}
+
+            <div className="temperature d-flex align-items-center">
+              <i className="fa-solid fa-temperature-three-quarters"></i>
+              <span>{weather.temperature}°C</span>
             </div>
-          </div>
-        </div>
-        <div className="col-2">
-          <div className="temperature">
-            <i className="fa-solid fa-temperature-three-quarters"></i>
-            <span>{weather.temperature}°C</span>
           </div>
         </div>
         <div className="col-3">
           <div className="weather-description">
-            <img
-              src={forecastIconUrl}
-              alt="current-weather-icon"
-              className="icon"
-            />
+            <img src={iconUrl} alt="current-weather-icon" className="icon" />
             <div className="description">{weather.description}</div>
           </div>
         </div>

@@ -21,7 +21,7 @@ export default function Body() {
         </div>
       </section>
       <hr />
-      <Forecast />
+      {/* <Forecast /> */}
     </div>
   );
 }
