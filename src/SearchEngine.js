@@ -7,7 +7,7 @@ export default function SearchEngine() {
   const [weather, setWeather] = useState({});
   const [loaded, setLoaded] = useState(false);
   const [currentTime, setCurrentTime] = useState({});
-  const [coords, setCoords] = useState({});
+  // const [coords, setCoords] = useState({});
   let days = [
     "Sunday",
     "Monday",
@@ -73,7 +73,7 @@ export default function SearchEngine() {
       dayOfWeek: fullTime.dayOfWeek,
       time: fullTime.time,
     });
-    setCoords({ lon: response.data.coord.lon, lat: response.data.coord.lat });
+    // setCoords({ lon: response.data.coord.lon, lat: response.data.coord.lat });
     setLoaded(true);
   }
 
