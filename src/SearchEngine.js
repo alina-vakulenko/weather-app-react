@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./SearchEngine.css";
 import WeatherData from "./WeatherData";
+import DefaultCities from "./DefaultCities";
+import "./SearchEngine.css";
 
 export default function SearchEngine(props) {
   const [city, setCity] = useState(props.defaultCity);
@@ -14,7 +15,7 @@ export default function SearchEngine(props) {
   function handleResponse(response) {
     setWeather({
       city: response.data.name,
-      temperature: Math.round(response.data.main.temp),
+      temperature: response.data.main.temp,
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
@@ -50,24 +51,27 @@ export default function SearchEngine(props) {
     navigator.geolocation.getCurrentPosition(searchLocation);
   }
   let searchForm = (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="search"
-        placeholder="Enter a city"
-        className="form-control"
-        autoFocus="on"
-        onChange={changeCity}
-      />
-      <div>
-        <input type="submit" value="Search" className="search-button" />
-        <button
-          className="current-location-button"
-          onClick={queryWeatherForCurrentLocation}
-        >
-          Current
-        </button>
-      </div>
-    </form>
+    <div>
+      <DefaultCities />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="search"
+          placeholder="Enter a city"
+          className="form-control"
+          autoFocus="on"
+          onChange={changeCity}
+        />
+        <div>
+          <input type="submit" value="Search" className="search-button" />
+          <button
+            className="current-location-button"
+            onClick={queryWeatherForCurrentLocation}
+          >
+            Current
+          </button>
+        </div>
+      </form>
+    </div>
   );
 
   if (loaded) {

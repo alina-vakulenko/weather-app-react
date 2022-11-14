@@ -10,8 +10,8 @@ export default function GitHubLink() {
         title="GitHub"
         rel="noreferrer"
       >
-        Open-source code{" "}
-      </a>
+        Open-source code
+      </a>{" "}
       by Alina Vakulenko
     </footer>
   );

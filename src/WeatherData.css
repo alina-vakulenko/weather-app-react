@@ -9,16 +9,14 @@
   font-size: 20px;
   color: var(--text-color-main);
 }
-.WeatherData .temperature {
-  font-size: 36px;
+.WeatherData .Temperature {
+  font-size: 40px;
   font-weight: 600;
   opacity: 0.8;
 }
-.WeatherData i {
-  opacity: 0.8;
-}
+
 .WeatherData .icon {
-  width: 100px;
+  width: 90px;
   display: block;
   margin: 0 auto;
   padding: 0;
@@ -32,7 +30,7 @@
 }
 .WeatherData .description {
   position: relative;
-  top: -25px;
+  top: -20px;
   text-transform: capitalize;
   text-align: center;
 }
@@ -40,8 +38,8 @@
 .WeatherData .weather-conditions div {
   margin: 15px auto;
 }
-.WeatherData .unit {
-  font-size: 16px;
+.WeatherData .units {
+  font-size: 14px;
   font-weight: 600;
   position: relative;
   top: -16px;
