@@ -1,10 +1,10 @@
 .UnitsChoice {
-  text-align: end;
   font-size: 12px;
 }
 .UnitsChoice a {
   text-decoration: none;
   color: black;
+  font-family: var(--font-secondary);
   opacity: 0.4;
   transition: all 150ms ease-in-out;
 }

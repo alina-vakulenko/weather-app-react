@@ -1,16 +1,12 @@
 .card-body {
   font-size: 14px;
-  background: var(--background-color);
-  padding: 10px;
+  padding: 10px 0;
 }
-.top-block {
-  margin: 0;
-  background-color: var(--background-highlight-color);
-  border-radius: 10px;
-  box-shadow: var(--box-shadow);
-}
-.top-block-container {
+.main-content {
   padding: 5px 15px;
+  background-color: var(--background-highlight-color);
+  box-shadow: var(--box-shadow);
+  border-radius: 10px;
 }
 hr {
   margin-top: 10px;

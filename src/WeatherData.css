@@ -1,0 +1,48 @@
+.WeatherData {
+  line-height: 1.5;
+  margin-top: 5px;
+}
+.WeatherData .current-city,
+.FormattedDate {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--text-color-main);
+}
+.WeatherData .temperature {
+  font-size: 36px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+.WeatherData i {
+  opacity: 0.8;
+}
+.WeatherData .icon {
+  width: 100px;
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.WeatherData .description,
+.weather-conditions {
+  font-family: var(--font-secondary);
+  opacity: 0.8;
+  font-size: 12px;
+}
+.WeatherData .description {
+  position: relative;
+  top: -25px;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.WeatherData .weather-conditions div {
+  margin: 15px auto;
+}
+.WeatherData .unit {
+  font-size: 16px;
+  font-weight: 600;
+  position: relative;
+  top: -16px;
+}

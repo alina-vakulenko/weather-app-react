@@ -1,19 +1,21 @@
 .SearchEngine {
-  height: 180px;
+  height: 160px;
 }
 .SearchEngine form {
-  line-height: 2;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
 }
-.SearchEngine .input-field {
-  min-width: 300px;
-  max-width: 100%;
-  margin-right: 10px;
-  border: 1px solid var(--text-color-main);
-  border-radius: 5px;
+.SearchEngine form .form-control {
+  min-width: 40%;
+  max-width: 60%;
+}
+.SearchEngine form div {
+  display: flex;
 }
 .SearchEngine .search-button {
-  padding: 1px 15px;
-  margin: 0 10px;
+  width: 80px;
+  margin-left: 10px;
   color: white;
   background: var(--text-color-main);
   border: 1px solid var(--text-color-main);
@@ -26,8 +28,8 @@
   color: var(--text-color-main);
 }
 .SearchEngine .current-location-button {
-  padding: 1px 15px;
-  margin: 0 10px;
+  width: 80px;
+  margin-left: 10px;
   color: white;
   background: rgb(26, 105, 251);
   border: 1px solid rgb(26, 105, 251);
@@ -39,60 +41,4 @@
   background-color: white;
   border: 1px solid var(--text-color-main);
   color: var(--text-color-main);
-}
-
-.CurrentWeather {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  line-height: 1.5;
-}
-.CurrentWeather .weather-blocks {
-  display: flex;
-  align-items: center;
-}
-.CurrentWeather .current-city,
-.date,
-.day-time {
-  text-transform: uppercase;
-  font-weight: 900;
-  font-size: 20px;
-  color: var(--text-color-main);
-}
-.CurrentWeather .temperature {
-  font-size: 36px;
-  font-weight: 600;
-  opacity: 0.8;
-}
-.CurrentWeather .icon {
-  width: 100px;
-  display: block;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.CurrentWeather .unit {
-  font-size: 16px;
-  font-weight: 600;
-  position: relative;
-  top: -16px;
-}
-
-.CurrentWeather .description,
-.weather-conditions {
-  font-family: var(--font-secondary);
-  opacity: 0.8;
-  font-size: 12px;
-}
-.CurrentWeather .description {
-  position: relative;
-  top: -25px;
-  text-transform: capitalize;
-  text-align: center;
-}
-
-.CurrentWeather .weather-conditions div {
-  margin: 15px auto;
-}
-.CurrentWeather i {
-  opacity: 0.8;
 }

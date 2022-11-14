@@ -6,22 +6,20 @@ import SearchEngine from "./SearchEngine";
 import Forecast from "./Forecast";
 export default function Body() {
   return (
-    <div className="card-body">
-      <section className="row top-block">
-        <div className="col top-block-container">
-          <div className="row">
-            <div className="col-8">
-              <DefaultCities />
-            </div>
-            <div className="col-4">
-              <UnitsChoice />
-            </div>
+    <section className="card-body">
+      <div className="container">
+        <div className="main-content">
+          <div className="d-flex justify-content-between">
+            <DefaultCities />
+            <UnitsChoice />
           </div>
-          <SearchEngine />
+          <SearchEngine defaultCity="London" />
         </div>
-      </section>
-      <hr />
-      <Forecast />
-    </div>
+        <hr />
+        <div className="forecast-content">
+          <Forecast />
+        </div>
+      </div>
+    </section>
   );
 }
