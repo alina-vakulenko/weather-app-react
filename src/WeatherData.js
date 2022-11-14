@@ -9,7 +9,7 @@ export default function WeatherData(props) {
       <div className="row d-flex align-items-center">
         <div className="col-7">
           <div className="d-flex justify-content-between">
-            <div>
+            <div className="d-flex flex-column justify-content-center">
               <div className="current-city">{props.data.city}</div>
               <FormattedDate timestamp={props.data.timestamp} />
             </div>

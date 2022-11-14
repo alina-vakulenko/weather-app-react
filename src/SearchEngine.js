@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherData from "./WeatherData";
-import DefaultCities from "./DefaultCities";
+// import DefaultCities from "./DefaultCities";
 import "./SearchEngine.css";
 
 export default function SearchEngine(props) {
@@ -52,7 +52,7 @@ export default function SearchEngine(props) {
   }
   let searchForm = (
     <div>
-      <DefaultCities />
+      {/* <DefaultCities /> */}
       <form onSubmit={handleSubmit}>
         <input
           type="search"
