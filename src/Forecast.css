@@ -1,11 +1,11 @@
-.Forecast .forecast-day {
+.Forecast .ForecastDay {
   text-align: center;
   background-color: var(--background-highlight-color);
   border-radius: 10px;
   box-shadow: var(--box-shadow);
   opacity: 0.8;
 }
-.Forecast .forecast-icon {
+.ForecastDay .WeatherIcon img {
   display: block;
   margin: 0 auto;
   width: 36px;

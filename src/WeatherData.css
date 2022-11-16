@@ -1,6 +1,6 @@
 .WeatherData {
   line-height: 1.5;
-  margin-top: 5px;
+  margin-top: 15px;
 }
 .WeatherData .current-city,
 .FormattedDate {
@@ -42,5 +42,11 @@
   font-size: 14px;
   font-weight: 600;
   position: relative;
-  top: -16px;
+  top: -18px;
+}
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-color: white;
+  border-width: 3px;
 }

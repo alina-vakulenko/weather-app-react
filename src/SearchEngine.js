@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherData from "./WeatherData";
-// import DefaultCities from "./DefaultCities";
+import SearchForm from "./SearchForm";
 import "./SearchEngine.css";
 
 export default function SearchEngine(props) {
@@ -9,8 +9,7 @@ export default function SearchEngine(props) {
   const [weather, setWeather] = useState({});
   const [loaded, setLoaded] = useState(false);
   const apiKey = "b35c686ba9565ba0ab254c2230937552";
-  let units = "metric";
-  // const [coords, setCoords] = useState({});
+  const units = "metric";
 
   function handleResponse(response) {
     setWeather({
@@ -19,10 +18,10 @@ export default function SearchEngine(props) {
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
-      iconUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      iconCode: response.data.weather[0].icon,
       timestamp: response.data.timezone,
+      coordinates: response.data.coord,
     });
-    // setCoords({ lon: response.data.coord.lon, lat: response.data.coord.lat });
     setLoaded(true);
   }
 
@@ -50,44 +49,20 @@ export default function SearchEngine(props) {
     }
     navigator.geolocation.getCurrentPosition(searchLocation);
   }
-  let searchForm = (
-    <div>
-      {/* <DefaultCities /> */}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="search"
-          placeholder="Enter a city"
-          className="form-control"
-          autoFocus="on"
-          onChange={changeCity}
-        />
-        <div>
-          <input type="submit" value="Search" className="search-button" />
-          <button
-            className="current-location-button"
-            onClick={queryWeatherForCurrentLocation}
-          >
-            Current
-          </button>
-        </div>
-      </form>
-    </div>
-  );
 
   if (loaded) {
     return (
       <div className="SearchEngine">
-        {searchForm}
+        <SearchForm
+          handleSubmit={handleSubmit}
+          changeCity={changeCity}
+          handleCurrent={queryWeatherForCurrentLocation}
+        />
         <WeatherData data={weather} />
       </div>
     );
   } else {
     queryWeatherForEnteredCity();
-    return (
-      <div className="SearchEngine">
-        {searchForm}
-        <div>Loading weather data...</div>
-      </div>
-    );
+    return null;
   }
 }
