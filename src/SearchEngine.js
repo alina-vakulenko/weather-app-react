@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import WeatherData from "./WeatherData";
 import SearchForm from "./SearchForm";
+import QuickSearchCities from "./QuickSearchCities";
 import "./SearchEngine.css";
 
 export default function SearchEngine(props) {
@@ -49,10 +50,15 @@ export default function SearchEngine(props) {
     }
     navigator.geolocation.getCurrentPosition(searchLocation);
   }
-
+  function pullCityFromDefault(event) {
+    event.preventDefault();
+    setCity(event.target.innerText);
+    setLoaded(false);
+  }
   if (loaded) {
     return (
       <div className="SearchEngine">
+        <QuickSearchCities handleClick={pullCityFromDefault} />
         <SearchForm
           handleSubmit={handleSubmit}
           changeCity={changeCity}

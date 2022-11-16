@@ -5,7 +5,7 @@ export default function Body() {
   return (
     <section className="card-body">
       <div className="container">
-        <SearchEngine defaultCity="London" />
+        <SearchEngine defaultCity="Dnipro" />
       </div>
     </section>
   );
