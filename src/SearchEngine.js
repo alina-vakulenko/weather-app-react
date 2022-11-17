@@ -5,6 +5,7 @@ import QuickSearchCities from "./QuickSearchCities";
 import SearchForm from "./SearchForm";
 import WeatherData from "./WeatherData";
 import "./SearchEngine.css";
+import { SpinnerRoundFilled } from "spinners-react";
 
 export default function SearchEngine(props) {
   const [city, setCity] = useState(props.defaultCity);
@@ -69,6 +70,10 @@ export default function SearchEngine(props) {
     );
   } else {
     queryWeatherForEnteredCity();
-    return null;
+    return (
+      <div className="d-flex justify-content-center">
+        <SpinnerRoundFilled color="0f0f8b" size={70} />
+      </div>
+    );
   }
 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ForecastDay from "./ForecastDay";
 import "./Forecast.css";
+import { SpinnerRoundFilled } from "spinners-react";
 
 export default function Forecast(props) {
   const [loaded, setLoaded] = useState(false);
@@ -43,6 +44,10 @@ export default function Forecast(props) {
     );
   } else {
     loadForecast();
-    return null;
+    return (
+      <div className="d-flex justify-content-center">
+        <SpinnerRoundFilled color="0f0f8b" size={70} />
+      </div>
+    );
   }
 }
