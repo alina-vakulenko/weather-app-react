@@ -41,8 +41,15 @@
 .WeatherData .units {
   font-size: 14px;
   font-weight: 600;
+  margin-left: 7px;
   position: relative;
   top: -18px;
+}
+.WeatherData .units a {
+  text-decoration: none;
+}
+.WeatherData .units a:hover {
+  text-decoration: underline;
 }
 hr {
   margin-top: 10px;

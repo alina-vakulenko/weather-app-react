@@ -12,12 +12,8 @@ export default function SearchForm(props) {
           onChange={props.changeCity}
         />
         <div>
-          <input type="submit" value="Search" className="search-button" />
-          <button
-            className="current-location-button"
-            onClick={props.handleCurrent}
-          >
-            Current
+          <button className="search-button" title="Submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
       </form>

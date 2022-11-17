@@ -1,14 +1,18 @@
-import "./App.css";
 import Header from "./Header";
-import Body from "./Body";
+import SearchEngine from "./SearchEngine";
 import GitHubLink from "./GitHubLink";
+import "./App.css";
 
 export default function App() {
   return (
     <div className="App">
       <div className="card">
         <Header />
-        <Body />
+        <section className="card-body">
+          <div className="container">
+            <SearchEngine defaultCity="Dnipro" />
+          </div>
+        </section>
       </div>
       <GitHubLink />
     </div>

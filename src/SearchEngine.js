@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import WeatherData from "./WeatherData";
-import SearchForm from "./SearchForm";
+import CurrentLocationWeather from "./CurrentLocationWeather";
 import QuickSearchCities from "./QuickSearchCities";
+import SearchForm from "./SearchForm";
+import WeatherData from "./WeatherData";
 import "./SearchEngine.css";
 
 export default function SearchEngine(props) {
@@ -40,30 +41,29 @@ export default function SearchEngine(props) {
     setCity(event.target.value);
   }
 
-  function queryWeatherForCurrentLocation(event) {
-    event.preventDefault();
-    function searchLocation(position) {
-      let latitude = position.coords.latitude;
-      let longitude = position.coords.longitude;
-      let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`;
-      axios.get(apiUrl).then(handleResponse);
-    }
-    navigator.geolocation.getCurrentPosition(searchLocation);
-  }
   function pullCityFromDefault(event) {
     event.preventDefault();
     setCity(event.target.innerText);
     setLoaded(false);
   }
+  function queryWeatherForCurrentCity(event) {
+    event.preventDefault();
+    function loadWeatherForCurrentLocation(position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`;
+      axios.get(apiUrl).then(handleResponse);
+    }
+    navigator.geolocation.getCurrentPosition(loadWeatherForCurrentLocation);
+  }
   if (loaded) {
     return (
       <div className="SearchEngine">
-        <QuickSearchCities handleClick={pullCityFromDefault} />
-        <SearchForm
-          handleSubmit={handleSubmit}
-          changeCity={changeCity}
-          handleCurrent={queryWeatherForCurrentLocation}
-        />
+        <div className="d-flex justify-content-between">
+          <QuickSearchCities handleClick={pullCityFromDefault} />
+          <CurrentLocationWeather handleClick={queryWeatherForCurrentCity} />
+        </div>
+        <SearchForm handleSubmit={handleSubmit} changeCity={changeCity} />
         <WeatherData data={weather} />
       </div>
     );

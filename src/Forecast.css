@@ -13,3 +13,9 @@
 .Forecast .forecast-temp-min {
   opacity: 0.7;
 }
+
+@media (max-width: 1200px) {
+  .ForecastDay {
+    margin-bottom: 15px;
+  }
+}
