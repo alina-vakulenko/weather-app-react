@@ -8,7 +8,7 @@ export default function CurrentLocationWeather(props) {
       title="Current location"
       onClick={props.handleClick}
     >
-      <i class="fa-solid fa-location-dot"></i> Current location
+      <i className="fa-solid fa-location-dot"></i> Current location
     </a>
   );
 }

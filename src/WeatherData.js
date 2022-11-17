@@ -10,35 +10,36 @@ export default function WeatherData(props) {
     <div className="WeatherData">
       <div className="main-content">
         <div className="row d-flex align-items-center">
-          <div className="col-7">
-            <div className="d-flex justify-content-between">
-              <div className="d-flex flex-column justify-content-center">
-                <div className="current-city">{props.data.city}</div>
-                <FormattedDate timestamp={props.data.timestamp} />
-              </div>
-
-              <div className="weather-description">
+          <div className="col">
+            <div className="row d-flex align-items-center text-center">
+              <div className="col">
                 <WeatherIcon
                   iconCode={props.data.iconCode}
                   alt={props.data.description}
                 />
-                <div className="description">{props.data.description}</div>
+              </div>
+
+              <div className="col">
+                <Temperature celsiusTemperature={props.data.temperature} />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                <div className="weather-conditions">
+                  <div>
+                    Humidity: <span>{props.data.humidity}%</span>
+                  </div>
+                  <div>
+                    Wind: <span>{props.data.wind}m/sec</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           <div className="col">
-            <Temperature celsiusTemperature={props.data.temperature} />
-          </div>
-
-          <div className="col">
-            <div className="weather-conditions">
-              <div>
-                Humidity: <span>{props.data.humidity}%</span>
-              </div>
-              <div>
-                Wind: <span>{props.data.wind}m/sec</span>
-              </div>
+            <div className="text-end">
+              <FormattedDate timestamp={props.data.timestamp} />
             </div>
           </div>
         </div>

@@ -10,20 +10,33 @@
   --text-color-main: rgb(15, 15, 139);
   --box-shadow: 3px 3px 8px rgba(15, 15, 139, 0.4);
 }
-.card {
+.Header {
+  text-align: center;
+  color: white;
+  padding: 5px;
+  font-size: 22px;
+  font-weight: bold;
+  background: var(--background-highlight-color);
+  font-family: var(--font-header);
+  border-radius: 10px 10px 0 0;
+}
+.Header .app-logo {
+  width: 50px;
+}
+
+.App {
   margin: 0 auto;
   margin-top: 100px;
   max-width: 50%;
-  background: var(--background-color);
-  font-family: var(--font-main);
-}
-.card-body {
   font-size: 14px;
-  padding: 10px 0;
-}
-.main-content {
-  padding: 5px 15px;
-  background-color: var(--background-highlight-color);
-  box-shadow: var(--box-shadow);
+  font-family: var(--font-main);
+  background: var(--background-color);
   border-radius: 10px;
+}
+.GitHubLink {
+  padding-bottom: 15px;
+  text-align: center;
+  font-size: 10px;
+  font-family: var(--font-header);
+  opacity: 0.8;
 }

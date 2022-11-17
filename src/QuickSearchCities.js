@@ -2,9 +2,9 @@ import React from "react";
 import "./QuickSearchCities.css";
 
 export default function QuickSearchCities(props) {
-  const defaultCities = ["Kyiv", "Dnipro", "Lviv", "Kharkiv", "Odesa"];
+  const defaultCities = ["Kyiv", "Lviv", "Kharkiv", "Odesa"];
   return (
-    <div className="QuickSearchCities d-none d-md-block">
+    <div className="QuickSearchCities">
       <ul>
         {defaultCities.map(function (city, index) {
           return (

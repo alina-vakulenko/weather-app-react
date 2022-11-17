@@ -11,18 +11,18 @@ export default function FormattedDate(props) {
     "Saturday",
   ];
   const months = [
-    "January",
-    "February",
-    "March",
-    "April",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
     "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
   ];
   let currentTime = new Date();
   let localTime = currentTime.getTime();
@@ -44,11 +44,12 @@ export default function FormattedDate(props) {
 
   return (
     <div className="FormattedDate">
+      <span>Last updated (local time):</span>
       <div>
-        {month} {dayOfMonth}
+        {dayOfWeek}, {month} {dayOfMonth}
       </div>
       <div>
-        {dayOfWeek} {hours}:{minutes}
+        {hours}:{minutes}
       </div>
     </div>
   );

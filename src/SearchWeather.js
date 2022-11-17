@@ -4,10 +4,10 @@ import CurrentLocationWeather from "./CurrentLocationWeather";
 import QuickSearchCities from "./QuickSearchCities";
 import SearchForm from "./SearchForm";
 import WeatherData from "./WeatherData";
-import "./SearchEngine.css";
+import "./SearchWeather.css";
 import { SpinnerRoundFilled } from "spinners-react";
 
-export default function SearchEngine(props) {
+export default function SearchWeather(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [weather, setWeather] = useState({});
   const [loaded, setLoaded] = useState(false);
@@ -15,9 +15,11 @@ export default function SearchEngine(props) {
   const units = "metric";
 
   function handleResponse(response) {
+    console.log(response.data);
     setWeather({
       city: response.data.name,
       temperature: response.data.main.temp,
+      feelsLike: response.data.main.feels_like,
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
@@ -59,12 +61,21 @@ export default function SearchEngine(props) {
   }
   if (loaded) {
     return (
-      <div className="SearchEngine">
-        <div className="d-flex justify-content-between">
-          <QuickSearchCities handleClick={pullCityFromDefault} />
-          <CurrentLocationWeather handleClick={queryWeatherForCurrentCity} />
+      <div className="SearchWeather">
+        <div className="row d-md-flex align-items-center">
+          <div className="col d-none d-md-block">
+            <QuickSearchCities handleClick={pullCityFromDefault} />
+          </div>
+          <div className="col text-center text-md-end">
+            <CurrentLocationWeather handleClick={queryWeatherForCurrentCity} />
+          </div>
         </div>
-        <SearchForm handleSubmit={handleSubmit} changeCity={changeCity} />
+        <SearchForm
+          handleSubmit={handleSubmit}
+          changeCity={changeCity}
+          city={weather.city}
+          description={weather.description}
+        />
         <WeatherData data={weather} />
       </div>
     );
