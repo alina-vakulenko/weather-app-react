@@ -1,32 +1,30 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { apiUrlForecastByCoordinates } from "./apiSettings";
 import ForecastDay from "./ForecastDay";
 import "./Forecast.css";
 import { SpinnerRoundFilled } from "spinners-react";
 
 export default function Forecast(props) {
-  const [loaded, setLoaded] = useState(false);
+  const [loadedForecast, setLoadedForecast] = useState(false);
   const [forecastData, setForecastData] = useState(null);
 
   useEffect(() => {
-    setLoaded(false);
+    setLoadedForecast(false);
   }, [props.coordinates]);
 
   function handleResponse(response) {
     setForecastData(response.data.daily);
-    setLoaded(true);
+    setLoadedForecast(true);
   }
 
   function loadForecast() {
-    const apiKey = "b35c686ba9565ba0ab254c2230937552";
-    const units = "metric";
-    let lat = props.coordinates.lat;
-    let lon = props.coordinates.lon;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
-    axios.get(apiUrl).then(handleResponse);
+    axios
+      .get(apiUrlForecastByCoordinates(props.coordinates))
+      .then(handleResponse);
   }
 
-  if (loaded) {
+  if (loadedForecast) {
     return (
       <section className="Forecast">
         <div className="row">

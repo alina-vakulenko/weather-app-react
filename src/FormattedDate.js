@@ -24,33 +24,23 @@ export default function FormattedDate(props) {
     "Nov",
     "Dec",
   ];
-  let currentTime = new Date();
-  let localTime = currentTime.getTime();
-  let localOffset = currentTime.getTimezoneOffset() * 60000;
-  let localCityTime = new Date(
-    localTime + localOffset + 1000 * props.timestamp
-  );
-  let dayOfWeek = days[localCityTime.getDay()];
-  let hours = localCityTime.getHours();
+  let timeOfUpdate = new Date(props.timestamp * 1000);
+  let dayOfWeek = days[timeOfUpdate.getDay()];
+  let hours = timeOfUpdate.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  let minutes = localCityTime.getMinutes();
+  let minutes = timeOfUpdate.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  let month = months[localCityTime.getMonth()];
-  let dayOfMonth = localCityTime.getDate();
+  let month = months[timeOfUpdate.getMonth()];
+  let dayOfMonth = timeOfUpdate.getDate();
 
   return (
     <div className="FormattedDate">
-      <span>Last updated (local time):</span>
-      <div>
-        {dayOfWeek}, {month} {dayOfMonth}
-      </div>
-      <div>
-        {hours}:{minutes}
-      </div>
+      <i className="fa-regular fa-clock"></i> Updated on: {dayOfWeek}, {month}{" "}
+      {dayOfMonth}, {hours}:{minutes}
     </div>
   );
 }

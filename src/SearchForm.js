@@ -4,13 +4,13 @@ export default function SearchForm(props) {
   return (
     <div className="SearchForm">
       <div className="row d-flex align-items-center">
-        <div className="col-12 col-md-5 d-flex flex-column justify-content-center">
+        <div className="col-12 col-md-6 d-flex flex-column justify-content-center">
           <div className="current-city">
             <i className="fa-solid fa-location-dot"></i> {props.city}
           </div>
           <div className="description">{props.description}</div>
         </div>
-        <div className="col d-flex justify-content-end">
+        <div className="col-12 col-md-6">
           <form onSubmit={props.handleSubmit}>
             <input
               type="search"

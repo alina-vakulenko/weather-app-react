@@ -4,35 +4,38 @@ import CurrentLocationWeather from "./CurrentLocationWeather";
 import QuickSearchCities from "./QuickSearchCities";
 import SearchForm from "./SearchForm";
 import WeatherData from "./WeatherData";
+import { apiUrlCurrentByCity, apiUrlCurrentByCoordinates } from "./apiSettings";
 import "./SearchWeather.css";
 import { SpinnerRoundFilled } from "spinners-react";
 
 export default function SearchWeather(props) {
-  const [city, setCity] = useState(props.defaultCity);
+  const [city, setCity] = useState({
+    required: props.defaultCity,
+    founded: "",
+  });
   const [weather, setWeather] = useState({});
-  const [loaded, setLoaded] = useState(false);
-  const apiKey = "b35c686ba9565ba0ab254c2230937552";
-  const units = "metric";
+  const [loadedWeather, setLoadedWeather] = useState(false);
 
   function handleResponse(response) {
-    console.log(response.data);
+    const currentWeather = response.data;
+    setCity({ ...city, founded: currentWeather.city });
     setWeather({
-      city: response.data.name,
-      temperature: response.data.main.temp,
-      feelsLike: response.data.main.feels_like,
-      description: response.data.weather[0].description,
-      wind: response.data.wind.speed,
-      humidity: response.data.main.humidity,
-      iconCode: response.data.weather[0].icon,
-      timestamp: response.data.timezone,
-      coordinates: response.data.coord,
+      coordinates: currentWeather.coordinates,
+      temperature: currentWeather.temperature.current,
+      feelsLike: currentWeather.temperature.feels_like,
+      humidity: currentWeather.temperature.humidity,
+      windSpeed: currentWeather.wind.speed,
+      windDegree: currentWeather.wind.degree,
+      description: currentWeather.condition.description,
+      iconUrl: currentWeather.condition.icon_url,
+      iconText: currentWeather.condition.icon,
+      timestamp: currentWeather.time,
     });
-    setLoaded(true);
+    setLoadedWeather(true);
   }
 
   function queryWeatherForEnteredCity() {
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
-    axios.get(apiUrl).then(handleResponse);
+    axios.get(apiUrlCurrentByCity(city.required)).then(handleResponse);
   }
 
   function handleSubmit(event) {
@@ -41,25 +44,28 @@ export default function SearchWeather(props) {
   }
 
   function changeCity(event) {
-    setCity(event.target.value);
+    setCity({ ...city, required: event.target.value });
   }
 
   function pullCityFromDefault(event) {
     event.preventDefault();
-    setCity(event.target.innerText);
-    setLoaded(false);
+    setCity({ ...city, required: event.target.innerText });
+    setLoadedWeather(false);
   }
+
   function queryWeatherForCurrentCity(event) {
     event.preventDefault();
+
     function loadWeatherForCurrentLocation(position) {
-      const latitude = position.coords.latitude;
-      const longitude = position.coords.longitude;
-      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${units}&appid=${apiKey}`;
-      axios.get(apiUrl).then(handleResponse);
+      axios
+        .get(apiUrlCurrentByCoordinates(position.coords))
+        .then(handleResponse);
     }
+
     navigator.geolocation.getCurrentPosition(loadWeatherForCurrentLocation);
   }
-  if (loaded) {
+
+  if (loadedWeather) {
     return (
       <div className="SearchWeather">
         <div className="row d-md-flex align-items-center">
@@ -73,7 +79,7 @@ export default function SearchWeather(props) {
         <SearchForm
           handleSubmit={handleSubmit}
           changeCity={changeCity}
-          city={weather.city}
+          city={city.founded}
           description={weather.description}
         />
         <WeatherData data={weather} />

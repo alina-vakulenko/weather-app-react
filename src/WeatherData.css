@@ -2,62 +2,65 @@
   line-height: 1.5;
   margin-top: 10px;
   margin-bottom: 10px;
-  position: relative;
 }
 .WeatherData .main-content {
+  position: relative;
   padding: 5px 15px;
   background-color: var(--background-highlight-color);
   box-shadow: var(--box-shadow);
   border-radius: 10px;
 }
 .WeatherData .FormattedDate {
-  font-weight: 900;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 12px;
   color: var(--text-color-main);
   position: absolute;
-  right: 10px;
-  top: 10px;
+  left: 5px;
+  bottom: 10px;
 }
-.WeatherData .FormattedDate span {
-  text-transform: none;
-  font-weight: 400;
-  font-size: 12px;
-  color: #212529;
-  opacity: 0.8;
-}
-.WeatherData .Temperature {
+
+.WeatherData .temperature {
   font-size: 46px;
   font-weight: 600;
   opacity: 0.8;
 }
-.WeatherData .Temperature .units {
+.WeatherData .temperature .units {
   font-size: 18px;
   font-weight: 600;
   margin-left: 5px;
   position: relative;
   top: -20px;
 }
-.WeatherData .Temperature .units a {
+/* .WeatherData .Temperature .units a {
   text-decoration: none;
 }
 .WeatherData .Temperature .units a:hover {
   text-decoration: underline;
-}
-.WeatherData .main-content .WeatherIcon {
-  width: 100px;
+} */
+.WeatherData .main-content .WeatherIcon img {
+  width: 130px;
   display: block;
   margin: 0 auto;
   padding: 0;
 }
 
-.WeatherData .weather-conditions {
+.WeatherData .weather-conditions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   font-family: var(--font-secondary);
-  opacity: 0.8;
   font-size: 12px;
+  opacity: 0.8;
 }
-
-.WeatherData .weather-conditions div {
-  margin: 15px auto;
+.WeatherData .weather-conditions-icons {
+  color: var(--text-color-main);
+  font-size: 16px;
+}
+.WeatherData .weather-conditions-value {
+  font-family: var(--font-main);
+}
+.WeatherData .weather-conditions li {
+  margin: 5px auto;
 }
 
 hr {
@@ -68,9 +71,19 @@ hr {
 }
 @media (max-width: 992px) {
   .WeatherData .main-content {
+    text-align: cent er;
+  }
+  .WeatherData .weather-conditions ul {
+    text-align: left;
+    margin-bottom: 50px;
+  }
+
+  .WeatherData .FormattedDate {
     text-align: center;
   }
-  .WeatherData .FormattedDate {
-    font-size: 16px;
+  .WeatherData .temperature {
+    text-align: center;
+    /* position: relative;
+    top: -15px; */
   }
 }
