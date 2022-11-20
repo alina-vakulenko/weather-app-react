@@ -39,8 +39,9 @@ export default function FormattedDate(props) {
 
   return (
     <div className="FormattedDate">
-      <i className="fa-regular fa-clock"></i> Updated on: {dayOfWeek}, {month}{" "}
-      {dayOfMonth}, {hours}:{minutes}
+      {dayOfWeek}, {month} {dayOfMonth}
+      <br />
+      <i className="fa-regular fa-clock"></i> Updated on: {hours}:{minutes}
     </div>
   );
 }

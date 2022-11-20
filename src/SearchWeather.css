@@ -19,8 +19,8 @@
   color: var(--text-color-main);
   text-align: center;
 }
-.SearchWeather .description {
-  font-style: italic;
+.SearchWeather .SearchForm .description {
+  font-size: 12px;
   text-align: center;
   opacity: 0.8;
   text-transform: capitalize;

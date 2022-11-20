@@ -5,10 +5,9 @@
   --background-color: #b7dfff;
   --background-highlight-color: rgba(32, 132, 213, 0.2);
   --font-main: "Roboto Slab", serif;
-  --font-secondary: "Merriweather", serif;
   --font-header: "Roboto Mono", monospace;
   --text-color-main: rgb(15, 15, 139);
-  --box-shadow: 3px 3px 8px rgba(15, 15, 139, 0.4);
+  --box-shadow: 3px 3px 10px rgba(15, 15, 139, 0.4);
 }
 .Header {
   text-align: center;

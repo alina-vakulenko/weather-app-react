@@ -1,5 +1,5 @@
 import React from "react";
-import WeatherIcon from "./WeatherIcon";
+import WeatherIconForecast from "./WeatherIconForecast";
 
 export default function ForecastDay(props) {
   function getDayName() {
@@ -17,8 +17,8 @@ export default function ForecastDay(props) {
   }
   return (
     <div className="ForecastDay">
-      <strong>{getDayName()}</strong>
-      <WeatherIcon
+      <strong className="dayName">{getDayName()}</strong>
+      <WeatherIconForecast
         iconUrl={props.data.condition.icon_url}
         alt={props.data.condition.icon}
       />
