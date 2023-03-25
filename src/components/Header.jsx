@@ -1,5 +1,5 @@
 import React from "react";
-import appLogo from "./icons/weather_icon.svg";
+import appLogo from "../icons/weather_icon.svg";
 
 export default function Header() {
   return (

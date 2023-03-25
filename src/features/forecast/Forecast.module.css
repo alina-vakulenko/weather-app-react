@@ -1,24 +1,25 @@
-.Forecast .ForecastDay {
+.forecastDay {
   text-align: center;
   background-color: var(--background-highlight-color);
-  border-radius: 10px;
   box-shadow: var(--box-shadow);
+  border-radius: 10px;
   opacity: 0.8;
 }
-.Forecast .dayName {
+.dayName {
   color: var(--text-color-main);
+  text-transform: capitalize;
 }
-.Forecast .WeatherIconForecast img {
+.icon {
   display: block;
   margin: 0 auto;
-  width: 50px;
+  width: 60px;
 }
-.Forecast .forecast-temp-min {
+.tempMin {
   opacity: 0.7;
 }
 
 @media (max-width: 1200px) {
-  .ForecastDay {
+  .forecastDay {
     margin-bottom: 15px;
   }
 }

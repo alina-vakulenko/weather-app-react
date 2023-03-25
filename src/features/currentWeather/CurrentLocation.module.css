@@ -1,0 +1,17 @@
+.btn {
+  padding: 5px;
+  border: none;
+  background: none;
+  color: #212529;
+  opacity: 0.8;
+  transition: all 200ms ease-in-out;
+}
+
+.btn:hover {
+  color: var(--text-color-main);
+}
+
+.btn span {
+  font-size: 12px;
+  font-weight: 600;
+}

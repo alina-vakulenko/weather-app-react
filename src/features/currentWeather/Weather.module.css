@@ -1,27 +1,71 @@
-.WeatherData {
+.currentWeatherBlock {
+  margin: 5px;
+  padding: 5px;
+}
+
+.city {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--text-color-main);
+  text-align: center;
+}
+
+.description {
+  font-size: 12px;
+  text-align: center;
+  opacity: 0.8;
+  text-transform: capitalize;
+}
+
+.suggestedCitiesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+.suggestedCitiesList li {
+  margin-right: 30px;
+}
+a.suggestedCity {
+  color: #212529;
+  opacity: 0.8;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px;
+  transition: all 200ms ease-in-out;
+}
+a.suggestedCity:hover {
+  color: var(--text-color-main);
+}
+
+.currentWeatherData {
   line-height: 1.5;
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.WeatherData .main-content {
+.currentWeatherData .content {
   padding: 5px 15px;
   background-color: var(--background-highlight-color);
   box-shadow: var(--box-shadow);
   border-radius: 10px;
 }
-.WeatherData .FormattedDate {
+
+.date {
   font-weight: 600;
   color: #212529;
   opacity: 0.8;
 }
 
-.WeatherData .temperature {
+.temperature {
   text-align: center;
   font-size: 50px;
   font-weight: 600;
   color: white;
 }
-.WeatherData .temperature .units {
+
+.units {
   font-size: 20px;
   font-weight: 600;
   margin-left: 5px;
@@ -29,22 +73,22 @@
   top: -22px;
 }
 
-.WeatherData .main-content .WeatherIconAnimated {
+.WeatherIconAnimated {
   text-align: center;
 }
 
-.WeatherData .weather-conditions ul {
+.additionalInfo {
   list-style: none;
   padding: 0;
   margin: 0;
   font-family: var(--font-secondary);
   opacity: 0.8;
 }
-.WeatherData .weather-conditions-icon {
+.conditionIcon {
   opacity: 0.8;
   font-size: 16px;
 }
-.WeatherData .weather-conditions-value {
+.conditionValue {
   font-family: var(--font-main);
   opacity: 0.8;
   font-weight: 600;
@@ -59,19 +103,21 @@
   --rotate: 90deg;
   transform: rotate(var(--rotate));
 }
+
 hr {
   margin-top: 10px;
   margin-bottom: 10px;
   border-color: white;
   border-width: 3px;
 }
+
 @media (max-width: 768px) {
-  .WeatherData .WeatherConditions {
+  .additionalInfo {
     display: flex;
     flex-direction: column;
   }
 
-  .WeatherData .FormattedDate {
+  .date {
     text-align: center;
   }
 }
