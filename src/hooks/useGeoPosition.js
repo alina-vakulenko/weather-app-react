@@ -28,7 +28,6 @@ export const useGeoPosition = (refetch) => {
   return {
     isIdle: state.status === "idle",
     isPending: state.status === "pending",
-    isLoading: state.status === "idle" || state.status === "pending",
     isResolved: state.status === "resolved",
     isRejected: state.status === "rejected",
     ...state,

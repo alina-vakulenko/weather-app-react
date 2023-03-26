@@ -5,25 +5,12 @@
   --background-color: #b7dfff;
   --background-highlight-color: rgba(32, 132, 213, 0.2);
   --font-main: "Roboto Slab", serif;
-  --font-header: "Roboto Mono", monospace;
+  --font-footer: "Roboto Mono", monospace;
   --text-color-main: rgb(15, 15, 139);
   --box-shadow: 3px 3px 10px rgba(15, 15, 139, 0.4);
 }
-.Header {
-  text-align: center;
-  color: white;
-  padding: 5px;
-  font-size: 22px;
-  font-weight: bold;
-  background: var(--background-highlight-color);
-  font-family: var(--font-header);
-  border-radius: 10px 10px 0 0;
-}
-.Header .app-logo {
-  width: 50px;
-}
 
-.App {
+.app {
   margin: 0 auto;
   margin-top: 100px;
   max-width: 50%;
@@ -32,23 +19,32 @@
   background: var(--background-color);
   border-radius: 10px;
 }
-.GitHubLink {
+
+.source-link {
   padding-bottom: 15px;
   text-align: center;
   font-size: 10px;
-  font-family: var(--font-header);
-  opacity: 0.8;
+  font-family: var(--font-footer);
+  color: var(--text-color-main);
+  opacity: 50%;
 }
+
+.source-link a {
+  color: #000;
+}
+
+.source-link a:hover {
+  color: var(--text-color-main);
+}
+
 @media (max-width: 576px) {
-  .App {
+  .app {
     max-width: 100%;
   }
 }
+
 @media (max-width: 992px) {
-  .App {
+  .app {
     max-width: 70%;
-  }
-  .Header {
-    font-size: 18px;
   }
 }

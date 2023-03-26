@@ -1,6 +1,8 @@
 import React from "react";
 import ReactAnimatedWeather from "react-animated-weather";
 
+import style from "../features/currentWeather/Weather.module.css";
+
 export default function WeatherIconAnimated({ icon }) {
   const iconsDictionary = {
     "clear-sky-day": "CLEAR_DAY",
@@ -23,11 +25,11 @@ export default function WeatherIconAnimated({ icon }) {
     "mist-night": "FOG",
   };
   return (
-    <div className="WeatherIconAnimated">
+    <div className={style.animatedIcon}>
       <ReactAnimatedWeather
         icon={iconsDictionary[icon]}
-        color="white"
-        size={80}
+        color={"#0f0f8b"}
+        size={60}
         animate={true}
       />
     </div>

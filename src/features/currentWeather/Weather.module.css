@@ -3,43 +3,12 @@
   padding: 5px;
 }
 
-.city {
-  text-transform: uppercase;
-  font-weight: 900;
-  font-size: 20px;
-  color: var(--text-color-main);
+.error {
   text-align: center;
+  color: red;
+  font-style: italic;
+  padding: 30px 0;
 }
-
-.description {
-  font-size: 12px;
-  text-align: center;
-  opacity: 0.8;
-  text-transform: capitalize;
-}
-
-.suggestedCitiesList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-}
-.suggestedCitiesList li {
-  margin-right: 30px;
-}
-a.suggestedCity {
-  color: #212529;
-  opacity: 0.8;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 5px;
-  transition: all 200ms ease-in-out;
-}
-a.suggestedCity:hover {
-  color: var(--text-color-main);
-}
-
 .currentWeatherData {
   line-height: 1.5;
   margin-top: 10px;
@@ -52,56 +21,62 @@ a.suggestedCity:hover {
   border-radius: 10px;
 }
 
-.date {
-  font-weight: 600;
-  color: #212529;
-  opacity: 0.8;
+.city {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--text-color-main);
+  text-align: center;
 }
 
-.temperature {
+.description {
+  font-size: 12px;
+  color: var(--text-color-main);
   text-align: center;
-  font-size: 50px;
+  text-transform: capitalize;
+}
+
+.animatedIcon {
+  display: block;
+  text-align: center;
+}
+
+.date {
+  color: var(--text-color-main);
+  font-weight: 900;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.time {
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.value {
+  text-align: center;
+  font-size: 42px;
   font-weight: 600;
-  color: white;
+  color: var(--text-color-main);
+  position: relative;
+}
+
+.value .label {
+  font-size: 12px;
+  font-weight: 400;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  white-space: nowrap;
 }
 
 .units {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   margin-left: 5px;
   position: relative;
   top: -22px;
-}
-
-.WeatherIconAnimated {
-  text-align: center;
-}
-
-.additionalInfo {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-family: var(--font-secondary);
-  opacity: 0.8;
-}
-.conditionIcon {
-  opacity: 0.8;
-  font-size: 16px;
-}
-.conditionValue {
-  font-family: var(--font-main);
-  opacity: 0.8;
-  font-weight: 600;
-  font-size: 14px;
-}
-.WeatherData .weather-conditions li {
-  margin: 5px auto;
-}
-
-.WeatherData .wind-direction {
-  display: inline-block;
-  --rotate: 90deg;
-  transform: rotate(var(--rotate));
 }
 
 hr {
@@ -112,12 +87,30 @@ hr {
 }
 
 @media (max-width: 768px) {
-  .additionalInfo {
-    display: flex;
-    flex-direction: column;
+  .value {
+    font-size: 28px;
   }
-
-  .date {
-    text-align: center;
+  .units {
+    font-size: 14px;
+    top: -12px;
+  }
+  .value .label {
+    bottom: -5px;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  .description {
+    display: none;
+  }
+  .date,
+  .city {
+    font-size: 16px;
+  }
+  .currentWeatherData .content {
+    padding: 15px 10px;
+  }
+  .currentWeatherBlock {
+    margin: 0;
+    padding: 0;
   }
 }

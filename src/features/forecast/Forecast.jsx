@@ -37,7 +37,7 @@ export default function Forecast({ coordinates }) {
         </div>
       )}
       {isRejected && (
-        <div className={style.errorMessage}>
+        <div className={style.error}>
           Oh no! Something went wrong. {error.message}
         </div>
       )}

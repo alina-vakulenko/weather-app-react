@@ -5,11 +5,10 @@ import { apiKey } from "../../api/apiSettings";
 
 import style from "./CurrentLocation.module.css";
 
-export default function CurrentLocationWeather({ setQueryParams }) {
+export default function CurrentLocationWeather({ setQueryParams, setCity }) {
   const mounted = useRef(false);
   const [refetch, setRefetch] = useState(null);
-  const { position, error, isIdle, isPending, isResolved, isRejected } =
-    useGeoPosition(refetch);
+  const { position, isPending } = useGeoPosition(refetch);
 
   useEffect(() => {
     if (mounted.current) {
@@ -19,10 +18,11 @@ export default function CurrentLocationWeather({ setQueryParams }) {
         units: "metric",
         key: apiKey,
       });
+      setCity("");
     } else {
       mounted.current = true;
     }
-  }, [position, apiKey]);
+  }, [position, setQueryParams, setCity]);
 
   return (
     <button
@@ -30,22 +30,15 @@ export default function CurrentLocationWeather({ setQueryParams }) {
       title="Current location"
       onClick={() => setRefetch((prev) => !prev)}
     >
-      {isPending && (
-        <div className="d-flex align-items-centers">
-          <div className="spinner-border spinner-border-sm" role="status">
+      <div className="d-flex align-items-center">
+        {isPending && (
+          <div className="spinner-border spinner-border-sm me-1" role="status">
             <span className="sr-only">Searching...</span>
           </div>
-          <span>Searching for your location...</span>
-        </div>
-      )}
-      {isRejected && (
-        <>
-          <span>Oh no, there was a problem getting your position:</span>
-          <pre>{error.message}</pre>
-        </>
-      )}
-      <i className="fa-solid fa-location-dot me-1"></i>
-      <span>Change to current location</span>
+        )}
+        <span>Current location</span>
+        <i className="fa-solid fa-location-dot ms-1"></i>
+      </div>
     </button>
   );
 }

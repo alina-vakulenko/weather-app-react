@@ -5,17 +5,33 @@
   border-radius: 10px;
   opacity: 0.8;
 }
+.error {
+  text-align: center;
+  color: red;
+  font-style: italic;
+  padding: 30px 0;
+}
 .dayName {
   color: var(--text-color-main);
   text-transform: capitalize;
+}
+
+.day {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-color-main);
 }
 .icon {
   display: block;
   margin: 0 auto;
   width: 60px;
 }
+.tempMax {
+  color: var(--text-color-main);
+}
 .tempMin {
-  opacity: 0.7;
+  opacity: 0.5;
+  color: var(--text-color-main);
 }
 
 @media (max-width: 1200px) {

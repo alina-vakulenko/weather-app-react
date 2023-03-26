@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="GitHubLink">
+    <footer className="source-link">
       This project is{" "}
       <a
         href="https://github.com/alina-vakulenko/weather-react"
