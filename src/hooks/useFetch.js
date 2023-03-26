@@ -36,7 +36,6 @@ export const useFetch = (fetchUrl, fetchParams, fetchReducer, prefix) => {
                 : err.response.data,
           });
         } else if (err.request) {
-          console.log(err.request);
           dispatch({
             type: `${prefix}/error`,
             payload: err.message,
