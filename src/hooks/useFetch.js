@@ -38,7 +38,7 @@ export const useFetch = (fetchUrl, fetchParams, fetchReducer, prefix) => {
         } else if (err.request) {
           dispatch({
             type: `${prefix}/error`,
-            payload: err.message,
+            payload: "Seems like there is a problem with Internet connection",
           });
         } else {
           dispatch({
